@@ -1,0 +1,39 @@
+# ── Cairn generated data (never commit — large, machine-local, regenerable) ──
+# rr/py recordings, derived artifacts, predictions, session state. .cairn alone
+# is multiple GB of trace recordings.
+/.cairn/
+
+# Extracted frame streams, ranked output, artifacts (cairn/extract + rank + artifact)
+/out/
+
+# Copied test binaries (built elsewhere, copied in — see README "Layout")
+/bin/
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Node / web (the frontend is build-step-free, but just in case) ──
+node_modules/
+/web/dist/
+npm-debug.log*
+
+# ── Editors / OS ──
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ── Logs / scratch ──
+*.log

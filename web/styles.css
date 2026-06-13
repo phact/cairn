@@ -1,0 +1,240 @@
+/* ============================================================================
+   Cairn — visual system.
+   Metaphor: cartography of a trace. Warm near-black terrain, a lit ember trail,
+   cool mint for recorded state, violet for moments of prediction, sage for
+   territory you've charted. Serif for narrative, mono for machine.
+   ========================================================================= */
+
+:root {
+  --accent: #F2A93B;          /* lit path — tweakable */
+  --accent-soft: #F2A93B33;
+  --value: #74D3BC;           /* recorded state */
+  --predict: #C29BF0;         /* prediction / surprise */
+  --charted: #9DC183;         /* understanding map: charted */
+  --anim: 1;                  /* animation-speed multiplier (tweakable) */
+
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --serif: "Spectral", Georgia, "Times New Roman", serif;
+}
+
+/* ---- DARK (default) ---- */
+body[data-theme="dark"] {
+  --bg-0: #110F0B;
+  --bg-1: #18140F;
+  --bg-2: #211C15;
+  --bg-3: #2C261D;
+  --line: #322C23;
+  --line-soft: #28231b;
+  --text-hi: #F4EFE4;
+  --text-mid: #ABA08D;
+  --text-dim: #6E6556;
+  --not-taken: #5E564A;
+  --grain: 0.04;
+}
+/* ---- LIGHT ---- */
+body[data-theme="light"], body[data-theme="hybrid"] {
+  --bg-0: #F4F0E7;
+  --bg-1: #ECE6D8;
+  --bg-2: #E3DBCA;
+  --bg-3: #D8CFBA;
+  --line: #CFC5AE;
+  --line-soft: #DCD3BF;
+  --text-hi: #2A2419;
+  --text-mid: #6A6051;
+  --text-dim: #948A77;
+  --not-taken: #A99F89;
+  --grain: 0.02;
+}
+
+/* terrain surfaces stay dark in hybrid mode */
+body[data-theme="hybrid"] .terrain {
+  --bg-0: #110F0B; --bg-1: #18140F; --bg-2: #211C15; --bg-3: #2C261D;
+  --line: #322C23; --line-soft: #28231b;
+  --text-hi: #F4EFE4; --text-mid: #ABA08D; --text-dim: #6E6556; --not-taken: #5E564A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+body {
+  background: var(--bg-0);
+  color: var(--text-hi);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.45;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* faint topographic contour wash behind everything */
+.contour-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(120% 90% at 12% 8%, color-mix(in oklab, var(--accent) 7%, transparent), transparent 45%),
+    radial-gradient(90% 80% at 92% 96%, color-mix(in oklab, var(--predict) 5%, transparent), transparent 50%);
+}
+
+#root { position: relative; z-index: 1; height: 100%; }
+
+::selection { background: color-mix(in oklab, var(--accent) 35%, transparent); }
+
+/* scrollbars */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 9px; }
+::-webkit-scrollbar-thumb:hover { background: var(--not-taken); }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---- typographic primitives ---- */
+.eyebrow {
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-dim); font-weight: 600;
+}
+.kbd {
+  font-family: var(--mono); font-size: 11px;
+  border: 1px solid var(--line); border-bottom-width: 2px;
+  border-radius: 5px; padding: 1px 6px; color: var(--text-mid);
+  background: var(--bg-2); white-space: nowrap;
+}
+.val {
+  color: var(--value);
+  font-variant-ligatures: none;
+}
+.serif { font-family: var(--serif); }
+
+/* ---- app shell ---- */
+.app {
+  display: grid;
+  grid-template-columns: 248px 1fr;
+  height: 100%;
+}
+
+/* ===== LEFT SPINE (holds still) ===== */
+.spine {
+  background: var(--bg-1);
+  border-right: 1px solid var(--line);
+  display: flex; flex-direction: column;
+  min-height: 0;
+}
+.spine-head { padding: 18px 18px 14px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 9px; }
+.brand-mark { width: 22px; height: 22px; flex: none; }
+.brand-name { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; color: var(--text-hi); }
+.scenario { margin-top: 12px; }
+.scenario-title { font-size: 13px; color: var(--text-hi); }
+.scenario-sub { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+/* breadcrumb / zoom ladder */
+.ladder { padding: 16px 14px; border-bottom: 1px solid var(--line); }
+.ladder-rung {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px; border-radius: 8px; cursor: pointer;
+  color: var(--text-dim); position: relative;
+  transition: background calc(.15s * var(--anim)), color calc(.15s * var(--anim));
+}
+.ladder-rung:hover { background: var(--bg-2); color: var(--text-mid); }
+.ladder-rung.active { background: var(--bg-2); color: var(--text-hi); }
+.ladder-rung.active .rung-dot { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.rung-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--not-taken); flex: none; transition: all calc(.2s*var(--anim)); }
+.rung-meta { display: flex; flex-direction: column; min-width: 0; }
+.rung-tier { font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
+.rung-name { font-size: 12.5px; }
+.ladder-line { width: 1px; height: 12px; background: var(--line); margin-left: 14px; }
+
+/* understanding map */
+.umap { padding: 16px 16px 14px; flex: 1; min-height: 0; overflow-y: auto; }
+.umap-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+.umap-title { font-size: 11px; color: var(--text-mid); font-weight: 600; }
+.umap-pct { font-size: 11px; color: var(--charted); }
+.umap-row { margin-bottom: 12px; }
+.umap-row-head { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.umap-kind { font-size: 11px; color: var(--text-mid); flex: 1; }
+.umap-status { font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; }
+.umap-status.quiet { color: var(--charted); }
+.umap-status.asking { color: var(--accent); }
+.umap-status.cold { color: var(--text-dim); }
+.umap-bar { height: 5px; border-radius: 4px; background: var(--bg-3); overflow: hidden; }
+.umap-fill { height: 100%; border-radius: 4px; background: var(--charted); transition: width calc(.5s*var(--anim)) cubic-bezier(.2,.7,.2,1); }
+.umap-foot { font-size: 10.5px; color: var(--text-dim); line-height: 1.5; margin-top: 6px; }
+
+/* ===== STAGE (morphs between tiers) ===== */
+.stage {
+  position: relative; min-width: 0;
+  display: flex; flex-direction: column;
+  background:
+    radial-gradient(140% 120% at 50% -10%, color-mix(in oklab, var(--bg-1) 60%, var(--bg-0)), var(--bg-0));
+  overflow: hidden;
+}
+.topbar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 20px; border-bottom: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg-1) 70%, transparent);
+  backdrop-filter: blur(6px); z-index: 5;
+}
+.topbar-spacer { flex: 1; }
+.seg {
+  display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg-1);
+}
+.seg button {
+  font-family: var(--mono); font-size: 11.5px; color: var(--text-mid);
+  background: transparent; border: none; padding: 7px 12px; cursor: pointer;
+  display: flex; align-items: center; gap: 6px; white-space: nowrap;
+  transition: background calc(.15s*var(--anim)), color calc(.15s*var(--anim));
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button:hover { color: var(--text-hi); background: var(--bg-2); }
+.seg button.on { color: var(--bg-0); background: var(--accent); font-weight: 600; }
+.seg button.on.predictpill { background: var(--predict); }
+
+.ghostbtn {
+  font-family: var(--mono); font-size: 11.5px; color: var(--text-mid);
+  background: var(--bg-1); border: 1px solid var(--line); border-radius: 8px;
+  padding: 7px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+  transition: all calc(.15s*var(--anim));
+}
+.ghostbtn:hover { color: var(--text-hi); border-color: var(--not-taken); }
+
+.stage-body { position: relative; flex: 1; min-height: 0; }
+
+/* tier panes share the stage-body; transitions handle zoom feel */
+.pane { position: absolute; inset: 0; display: flex; flex-direction: column; }
+
+/* zoom transition: incoming grows from a focus, outgoing recedes */
+@keyframes zoomInEnter { from { opacity: .65; transform: scale(1.05); } to { opacity: 1; transform: scale(1); } }
+@keyframes zoomInLeave { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(.94); } }
+@keyframes zoomOutEnter { from { opacity: .65; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes zoomOutLeave { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(1.1); } }
+.pane.enter-in { animation: zoomInEnter calc(.42s*var(--anim)) cubic-bezier(.2,.7,.2,1) both; }
+.pane.leave-in { animation: zoomInLeave calc(.42s*var(--anim)) cubic-bezier(.4,0,.7,.3) both; }
+.pane.enter-out { animation: zoomOutEnter calc(.42s*var(--anim)) cubic-bezier(.2,.7,.2,1) both; }
+.pane.leave-out { animation: zoomOutLeave calc(.42s*var(--anim)) cubic-bezier(.4,0,.7,.3) both; }
+
+/* bottom transport bar */
+.transport {
+  display: flex; align-items: center; gap: 14px;
+  padding: 11px 20px; border-top: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg-1) 75%, transparent);
+  z-index: 5;
+}
+.transport-hint { font-size: 11px; color: var(--text-dim); display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.stepper { display: inline-flex; gap: 6px; }
+.stepbtn {
+  width: 32px; height: 30px; border-radius: 7px; border: 1px solid var(--line);
+  background: var(--bg-2); color: var(--text-mid); cursor: pointer; font-size: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all calc(.15s*var(--anim));
+}
+.stepbtn:hover:not(:disabled) { color: var(--text-hi); border-color: var(--accent); }
+.stepbtn:disabled { opacity: .35; cursor: default; }
+.advance {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  background: var(--accent); color: var(--bg-0); border: none; border-radius: 7px;
+  padding: 8px 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  transition: filter calc(.15s*var(--anim));
+}
+.advance:hover { filter: brightness(1.08); }
+.advance:disabled { opacity: .4; cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pane { animation: none !important; }
+}
