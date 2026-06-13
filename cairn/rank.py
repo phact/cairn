@@ -33,6 +33,7 @@ def _proj_get(key, env):
     except Exception:
         return ""
 
+_NO_VERBS = os.environ.get("CAIRN_NO_VERBS") == "1"
 USER_MARK    = _proj_get("user_mark", "CAIRN_USER_MARK")
 STRIP_PREFIX = _proj_get("strip_prefix", "CAIRN_STRIP_PREFIX")
 
@@ -238,10 +239,13 @@ def score(fn, count, mindepth, depth_lo, depth_hi, fanout, flow, fanin,
 
 
     # (c)/(d) decision/transform verbs boost; plumbing sinks.
-    if any(lf == p or lf.startswith(p) for p in PLUMBING):
-        s -= 0.45
-    if any(v in lf for v in DECISION_VERBS):
-        s += 0.28
+    # CAIRN_NO_VERBS ablates these hand-curated lexical heuristics so bench can
+    # measure how much of the score was structure vs. crate-flattering vocab.
+    if not _NO_VERBS:
+        if any(lf == p or lf.startswith(p) for p in PLUMBING):
+            s -= 0.45
+        if any(v in lf for v in DECISION_VERBS):
+            s += 0.28
 
     # test seams (install_for_test, *_mock) are scaffolding, not the program.
     if "for_test" in lf or lf.endswith("_test") or "mock" in lf:

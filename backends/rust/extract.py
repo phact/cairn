@@ -193,12 +193,34 @@ def stack_depth(frame, cap=256):
     return d
 
 
+# Fast depth: reconstruct call nesting from the STACK POINTER (one register read
+# per stop) instead of walking 40+ frames (each an unwind = a remote round-trip).
+# Stack grows down, so a deeper frame has a smaller sp; we keep a stack of live
+# frame SPs and read off the depth. O(1) amortized, robust (no backtrace).
+_SP_STACK = []
+
+
+def cheap_depth(frame):
+    try:
+        sp = int(frame.read_register("sp"))
+    except Exception:
+        return stack_depth(frame)
+    while _SP_STACK and _SP_STACK[-1] < sp:     # deeper frames have returned
+        _SP_STACK.pop()
+    if not _SP_STACK or _SP_STACK[-1] != sp:
+        _SP_STACK.append(sp)
+    return len(_SP_STACK)
+
+
 # Only break on functions whose DEFINING file is under the user crate.
 # gdb reports user-crate files as workspace-relative paths ("crates/<c>/src/..."),
 # dependencies as absolute (/.cargo/registry/..., /.rustup/...). Requiring this
 # substring is the load-bearing "user_crate" filter at capture time; the project
 # config (or --user-mark) supplies the project's path, defaulting to "/src/".
 USER_CRATE_MARK = os.environ.get("CAIRN_USER_MARK", "/src/")
+# Structure-only fast extraction: skip per-frame arg value decode (the ranker
+# never uses it; values are tier-3's lazy job). For big cross-crate traces.
+STRUCT_ONLY = os.environ.get("CAIRN_STRUCT_ONLY") == "1"
 
 _FILE_HDR = re.compile(r"^File (.+):$")
 _FN_LINE  = re.compile(r"^(\d+):\s+(?:static\s+)?fn\s+(.+)$")
@@ -293,13 +315,17 @@ def main():
             counts[key] = c
 
             if c <= HIT_CAP:
+                # STRUCT_ONLY: the ranker needs structure (fn/file/line/depth) +
+                # return arms, NOT per-frame arg values (role is name-derived;
+                # frame values are tier-3's lazy job). Skipping read_args — the
+                # heavy per-stop DWARF decode — is the big-trace speedup.
                 rec = {
                     "step": step,
                     "fn": name,
                     "file": fname,
                     "line": line,
-                    "depth": stack_depth(frame),
-                    "args": read_args(frame),
+                    "depth": cheap_depth(frame) if STRUCT_ONLY else stack_depth(frame),
+                    "args": [] if STRUCT_ONLY else read_args(frame),
                     "hit_index": c,
                 }
                 fh.write(json.dumps(rec) + "\n")
