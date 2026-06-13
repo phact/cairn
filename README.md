@@ -1,5 +1,10 @@
 # Cairn
 
+| | |
+|---|---|
+| **cairn** &nbsp; /kɛərn/ &nbsp; *(“kairn,” rhymes with “bairn”)* &nbsp; · &nbsp; *noun* | A mound of stones stacked by hand as a trail marker — raised where the path isn't obvious, so the next traveler can follow the route someone already found. |
+| **Cairn** &nbsp; · &nbsp; *the tool* | The same idea for code: it marks the salient path through a real execution — the few events that matter out of millions — so you can retrace what unfamiliar code actually did, from what ran. |
+
 Cairn records a **real execution** of your program, ranks what mattered, and
 serves it at three zoom levels — so a developer (or an AI agent) can rebuild a
 mental model of code they didn't write from what *actually ran*, not from
