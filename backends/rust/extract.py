@@ -218,9 +218,21 @@ def cheap_depth(frame):
 # substring is the load-bearing "user_crate" filter at capture time; the project
 # config (or --user-mark) supplies the project's path, defaulting to "/src/".
 USER_CRATE_MARK = os.environ.get("CAIRN_USER_MARK", "/src/")
+# Alternative scoping: filter by demangled function-NAME prefix (e.g.
+# "serde_json::") instead of source-file path. Robust when the crate-under-test
+# is a *dependency of its own integration test* — gdb then reports its files as
+# relative paths ("src/de.rs"), so a path mark can't distinguish it from std,
+# but the name prefix always identifies it. Set CAIRN_NAME_MARK to use this.
+NAME_MARK = os.environ.get("CAIRN_NAME_MARK", "")
 # Structure-only fast extraction: skip per-frame arg value decode (the ranker
 # never uses it; values are tier-3's lazy job). For big cross-crate traces.
 STRUCT_ONLY = os.environ.get("CAIRN_STRUCT_ONLY") == "1"
+# Arms-once: capture each user function's return arm on its FIRST hit, then
+# disable that function's entry breakpoint so it never stops again. Turns the
+# O(total calls) per-call cost into O(distinct functions) — the bounded arms
+# pass the architecture specifies ("once per function suffices for flips"),
+# needed for big traces (tera's 60k calls blow a per-call gdb pass).
+ARMS_ONCE = os.environ.get("CAIRN_ARMS_ONCE") == "1"
 
 _FILE_HDR = re.compile(r"^File (.+):$")
 _FN_LINE  = re.compile(r"^(\d+):\s+(?:static\s+)?fn\s+(.+)$")
@@ -228,9 +240,15 @@ _FN_LINE  = re.compile(r"^(\d+):\s+(?:static\s+)?fn\s+(.+)$")
 
 def enumerate_user_functions():
     """Parse `info functions` -> list of (file, line) defined in the user
-    crate and matching one of FILE_GLOBS. Grounded in DWARF: a function is
-    listed under the file header where it is actually defined."""
-    text = gdb.execute("info functions", to_string=True)
+    crate. Grounded in DWARF: a function is listed under the file header where
+    it is actually defined.
+
+    Two scoping modes: by source-file substring (USER_CRATE_MARK, default) or,
+    when CAIRN_NAME_MARK is set, by demangled function-name prefix. The name
+    mode passes the mark as a regex to `info functions` so gdb expands the
+    dependency crate's compilation units (a bare `info functions` skips them)."""
+    cmd = f"info functions {re.escape(NAME_MARK)}" if NAME_MARK else "info functions"
+    text = gdb.execute(cmd, to_string=True)
     cur_file = None
     pairs = set()
     for raw in text.splitlines():
@@ -240,13 +258,18 @@ def enumerate_user_functions():
             continue
         if cur_file is None:
             continue
-        if USER_CRATE_MARK not in cur_file:
-            continue
-        if FILE_GLOBS and not any(g in cur_file for g in FILE_GLOBS):
-            continue
         fm = _FN_LINE.match(raw)
-        if fm:
-            pairs.add((cur_file, int(fm.group(1))))
+        if not fm:
+            continue
+        if NAME_MARK:
+            if not fm.group(2).startswith(NAME_MARK):
+                continue
+        else:
+            if USER_CRATE_MARK not in cur_file:
+                continue
+            if FILE_GLOBS and not any(g in cur_file for g in FILE_GLOBS):
+                continue
+        pairs.add((cur_file, int(fm.group(1))))
     return sorted(pairs)
 
 
@@ -286,16 +309,34 @@ def inferior_alive():
         return False
 
 
+def _addr_index(bps):
+    """Map resolved entry address -> breakpoint, so we can disable a function's
+    breakpoint after its first hit (arms-once). Built after the program starts,
+    when pending breakpoints have resolved to addresses."""
+    idx = {}
+    for bp in bps:
+        try:
+            for loc in bp.locations:
+                if getattr(loc, "address", None):
+                    idx[loc.address] = bp
+        except Exception:
+            pass
+    return idx
+
+
 def main():
     os.makedirs(os.path.dirname(OUT_PATH) or ".", exist_ok=True)
-    set_breakpoints()
+    bps = set_breakpoints()
 
     counts = {}
     returns = []
     step = 0
     fh = open(OUT_PATH, "w")
+    addr_idx = {}
     try:
         start_program()
+        if ARMS_ONCE:
+            addr_idx = _addr_index(bps)
         while inferior_alive() and step < MAX_EVENTS:
             try:
                 frame = gdb.newest_frame()
@@ -335,6 +376,17 @@ def main():
                 except (ValueError, gdb.error):
                     pass  # outermost frame / no return addr
                 step += 1
+
+            # arms-once: disable this function's entry breakpoint so subsequent
+            # calls don't stop — the FinishBP just armed still captures THIS
+            # activation's return. Bounds the run to one stop per function.
+            if ARMS_ONCE:
+                try:
+                    bp = addr_idx.get(int(frame.pc()))
+                    if bp is not None:
+                        bp.enabled = False
+                except Exception:
+                    pass
 
             try:
                 gdb.execute("continue")
