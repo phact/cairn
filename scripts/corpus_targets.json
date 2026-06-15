@@ -1,0 +1,1908 @@
+{
+  "_note": "Curated popular Rust crates with in-process integration tests. name_mark scopes capture by function-name prefix (the crate family). done=true when recorded. Edit freely as the campaign expands toward 100 repos.",
+  "targets": [
+    {
+      "name": "serde_json",
+      "git": "https://github.com/serde-rs/json",
+      "mark": "serde_json::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "regex",
+      "git": "https://github.com/rust-lang/regex",
+      "mark": "regex",
+      "done": true
+    },
+    {
+      "name": "clap",
+      "git": "https://github.com/clap-rs/clap",
+      "mark": "clap",
+      "done": true
+    },
+    {
+      "name": "url",
+      "git": "https://github.com/servo/rust-url",
+      "mark": "url::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "semver",
+      "git": "https://github.com/dtolnay/semver",
+      "mark": "semver::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "itertools",
+      "git": "https://github.com/rust-itertools/itertools",
+      "mark": "itertools::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "bytes",
+      "git": "https://github.com/tokio-rs/bytes",
+      "mark": "bytes::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "base64",
+      "git": "https://github.com/marshallpierce/rust-base64",
+      "mark": "base64::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "uuid",
+      "git": "https://github.com/uuid-rs/uuid",
+      "mark": "uuid::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "byteorder",
+      "git": "https://github.com/BurntSushi/byteorder",
+      "mark": "byteorder::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "nom",
+      "git": "https://github.com/rust-bakery/nom",
+      "mark": "nom::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "csv",
+      "git": "https://github.com/BurntSushi/rust-csv",
+      "mark": "csv",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "indexmap",
+      "git": "https://github.com/indexmap-rs/indexmap",
+      "mark": "indexmap::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "smallvec",
+      "git": "https://github.com/servo/rust-smallvec",
+      "mark": "smallvec::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "time",
+      "git": "https://github.com/time-rs/time",
+      "mark": "time::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "chrono",
+      "git": "https://github.com/chronotope/chrono",
+      "mark": "chrono::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "rand",
+      "git": "https://github.com/rust-random/rand",
+      "mark": "rand",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "httparse",
+      "git": "https://github.com/seanmonstar/httparse",
+      "mark": "httparse::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "toml",
+      "git": "https://github.com/toml-rs/toml",
+      "mark": "toml",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "serde_yaml",
+      "git": "https://github.com/dtolnay/serde-yaml",
+      "mark": "serde_yaml::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "hashbrown",
+      "git": "https://github.com/rust-lang/hashbrown",
+      "mark": "hashbrown::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "petgraph",
+      "git": "https://github.com/petgraph/petgraph",
+      "mark": "petgraph::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "bitflags",
+      "git": "https://github.com/bitflags/bitflags",
+      "mark": "bitflags::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ndarray",
+      "git": "https://github.com/rust-ndarray/ndarray",
+      "mark": "ndarray::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "num-bigint",
+      "git": "https://github.com/rust-num/num-bigint",
+      "mark": "num_bigint::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "ahash",
+      "git": "https://github.com/tkaitchuck/aHash",
+      "mark": "ahash::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "flate2",
+      "git": "https://github.com/rust-lang/flate2-rs",
+      "mark": "flate2::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "encoding_rs",
+      "git": "https://github.com/hsivonen/encoding_rs",
+      "mark": "encoding_rs::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "memchr",
+      "git": "https://github.com/BurntSushi/memchr",
+      "mark": "memchr::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "globset",
+      "git": "https://github.com/BurntSushi/ripgrep",
+      "mark": "globset::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "aho-corasick",
+      "git": "https://github.com/BurntSushi/aho-corasick",
+      "mark": "aho_corasick::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "bstr",
+      "git": "https://github.com/BurntSushi/bstr",
+      "mark": "bstr::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "walkdir",
+      "git": "https://github.com/BurntSushi/walkdir",
+      "mark": "walkdir::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "glob",
+      "git": "https://github.com/rust-lang/glob",
+      "mark": "glob::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "unicode-segmentation",
+      "git": "https://github.com/unicode-rs/unicode-segmentation",
+      "mark": "unicode_segmentation::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "unicode-width",
+      "git": "https://github.com/unicode-rs/unicode-width",
+      "mark": "unicode_width::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "unicode-normalization",
+      "git": "https://github.com/unicode-rs/unicode-normalization",
+      "mark": "unicode_normalization::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "http",
+      "git": "https://github.com/hyperium/http",
+      "mark": "http::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "mime",
+      "git": "https://github.com/hyperium/mime",
+      "mark": "mime::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "httpdate",
+      "git": "https://github.com/pyfisch/httpdate",
+      "mark": "httpdate::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "combine",
+      "git": "https://github.com/Marwes/combine",
+      "mark": "combine::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "winnow",
+      "git": "https://github.com/winnow-rs/winnow",
+      "mark": "winnow::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "logos",
+      "git": "https://github.com/maciejhirsz/logos",
+      "mark": "logos::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ron",
+      "git": "https://github.com/ron-rs/ron",
+      "mark": "ron::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "pulldown-cmark",
+      "git": "https://github.com/raphlinus/pulldown-cmark",
+      "mark": "pulldown_cmark::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "syn",
+      "git": "https://github.com/dtolnay/syn",
+      "mark": "syn::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "proc-macro2",
+      "git": "https://github.com/dtolnay/proc-macro2",
+      "mark": "proc_macro2::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "quote",
+      "git": "https://github.com/dtolnay/quote",
+      "mark": "quote::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "anyhow",
+      "git": "https://github.com/dtolnay/anyhow",
+      "mark": "anyhow::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "thiserror",
+      "git": "https://github.com/dtolnay/thiserror",
+      "mark": "thiserror::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "hex",
+      "git": "https://github.com/KokaKiwi/rust-hex",
+      "mark": "hex::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "data-encoding",
+      "git": "https://github.com/ia0/data-encoding",
+      "mark": "data_encoding::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "heck",
+      "git": "https://github.com/withoutboats/heck",
+      "mark": "heck::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "strsim",
+      "git": "https://github.com/rapidfuzz/strsim-rs",
+      "mark": "strsim::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "textwrap",
+      "git": "https://github.com/mgeisler/textwrap",
+      "mark": "textwrap::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "num-traits",
+      "git": "https://github.com/rust-num/num-traits",
+      "mark": "num_traits::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "num-rational",
+      "git": "https://github.com/rust-num/num-rational",
+      "mark": "num_rational::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "num-complex",
+      "git": "https://github.com/rust-num/num-complex",
+      "mark": "num_complex::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "num-integer",
+      "git": "https://github.com/rust-num/num-integer",
+      "mark": "num_integer::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "arrayvec",
+      "git": "https://github.com/bluss/arrayvec",
+      "mark": "arrayvec::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "tinyvec",
+      "git": "https://github.com/Lokathor/tinyvec",
+      "mark": "tinyvec::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "either",
+      "git": "https://github.com/rayon-rs/either",
+      "mark": "either::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "itoa",
+      "git": "https://github.com/dtolnay/itoa",
+      "mark": "itoa::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "ryu",
+      "git": "https://github.com/dtolnay/ryu",
+      "mark": "ryu::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "fnv",
+      "git": "https://github.com/servo/rust-fnv",
+      "mark": "fnv::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ordered-float",
+      "git": "https://github.com/reem/rust-ordered-float",
+      "mark": "ordered_float::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "bit-vec",
+      "git": "https://github.com/contain-rs/bit-vec",
+      "mark": "bit_vec::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "fixedbitset",
+      "git": "https://github.com/petgraph/fixedbitset",
+      "mark": "fixedbitset::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "slab",
+      "git": "https://github.com/tokio-rs/slab",
+      "mark": "slab::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "slotmap",
+      "git": "https://github.com/orlp/slotmap",
+      "mark": "slotmap::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "compact_str",
+      "git": "https://github.com/ParkMyCar/compact_str",
+      "mark": "compact_str::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "smol_str",
+      "git": "https://github.com/rust-analyzer/smol_str",
+      "mark": "smol_str::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "typed-arena",
+      "git": "https://github.com/SimonSapin/rust-typed-arena",
+      "mark": "typed_arena::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "roaring",
+      "git": "https://github.com/RoaringBitmap/roaring-rs",
+      "mark": "roaring::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "crc32fast",
+      "git": "https://github.com/srijs/rust-crc32fast",
+      "mark": "crc32fast::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "twox-hash",
+      "git": "https://github.com/shepmaster/twox-hash",
+      "mark": "twox_hash::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "rust_decimal",
+      "git": "https://github.com/paupino/rust-decimal",
+      "mark": "rust_decimal::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "humantime",
+      "git": "https://github.com/tailhook/humantime",
+      "mark": "humantime::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "bytecount",
+      "git": "https://github.com/llogiq/bytecount",
+      "mark": "bytecount::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "jiff",
+      "git": "https://github.com/BurntSushi/jiff",
+      "mark": "jiff::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "regex-automata",
+      "git": "https://github.com/BurntSushi/regex-automata",
+      "mark": "regex_automata::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "unicode-ident",
+      "git": "https://github.com/dtolnay/unicode-ident",
+      "mark": "unicode_ident::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "pest",
+      "git": "https://github.com/pest-parser/pest",
+      "mark": "pest::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "ascii",
+      "git": "https://github.com/tormol/ascii",
+      "mark": "ascii::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "base32",
+      "git": "https://github.com/andreasots/base32",
+      "mark": "base32::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "bincode",
+      "git": "https://github.com/bincode-org/bincode",
+      "mark": "bincode::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "rmp-serde",
+      "git": "https://github.com/3Hren/msgpack-rust",
+      "mark": "rmp_serde::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "ciborium",
+      "git": "https://github.com/enarx/ciborium",
+      "mark": "ciborium::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "postcard",
+      "git": "https://github.com/jamesmunns/postcard",
+      "mark": "postcard::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "ipnet",
+      "git": "https://github.com/krisprice/ipnet",
+      "mark": "ipnet::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "fst",
+      "git": "https://github.com/BurntSushi/fst",
+      "mark": "fst::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "euclid",
+      "git": "https://github.com/servo/euclid",
+      "mark": "euclid::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "approx",
+      "git": "https://github.com/brendanzab/approx",
+      "mark": "approx::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "glam",
+      "git": "https://github.com/bitshifter/glam-rs",
+      "mark": "glam::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "nalgebra",
+      "git": "https://github.com/dimforge/nalgebra",
+      "mark": "nalgebra::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "geo",
+      "git": "https://github.com/georust/geo",
+      "mark": "geo::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "pathfinding",
+      "git": "https://github.com/samueltardieu/pathfinding",
+      "mark": "pathfinding::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "rust-stemmers",
+      "git": "https://github.com/CurrySoftware/rust-stemmers",
+      "mark": "rust_stemmers::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "deunicode",
+      "git": "https://github.com/kornelski/deunicode",
+      "mark": "deunicode::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "unicode-bidi",
+      "git": "https://github.com/servo/unicode-bidi",
+      "mark": "unicode_bidi::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "bitvec",
+      "git": "https://github.com/ferrilab/bitvec",
+      "mark": "bitvec::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "heapless",
+      "git": "https://github.com/rust-embedded/heapless",
+      "mark": "heapless::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "bigdecimal",
+      "git": "https://github.com/akubera/bigdecimal-rs",
+      "mark": "bigdecimal::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "statrs",
+      "git": "https://github.com/statrs-dev/statrs",
+      "mark": "statrs::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "primal",
+      "git": "https://github.com/huonw/primal",
+      "mark": "primal::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "blake3",
+      "git": "https://github.com/BLAKE3-team/BLAKE3",
+      "mark": "blake3::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "pulldown-cmark2",
+      "git": "https://github.com/pulldown-cmark/pulldown-cmark",
+      "mark": "pulldown_cmark::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "jsonpath",
+      "git": "https://github.com/besok/jsonpath-rust",
+      "mark": "jsonpath_rust::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ron2",
+      "git": "https://github.com/ron-rs/ron",
+      "mark": "ron::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "config",
+      "git": "https://github.com/mehcode/config-rs",
+      "mark": "config::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "evalexpr",
+      "git": "https://github.com/ISibboI/evalexpr",
+      "mark": "evalexpr::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "meval",
+      "git": "https://github.com/rekka/meval-rs",
+      "mark": "meval::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "roman",
+      "git": "https://github.com/sebcrozet/roman",
+      "mark": "roman::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "rust_decimal2",
+      "git": "https://github.com/paupino/rust-decimal",
+      "mark": "rust_decimal::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "simple-json",
+      "git": "https://github.com/rhysd/tinyjson",
+      "mark": "tinyjson::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "tinyjson",
+      "git": "https://github.com/rhysd/tinyjson",
+      "mark": "tinyjson::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "json",
+      "git": "https://github.com/maciejhirsz/json-rust",
+      "mark": "json::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "nom-derive",
+      "git": "https://github.com/rust-bakery/nom-derive",
+      "mark": "nom_derive::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "combine2",
+      "git": "https://github.com/Marwes/combine",
+      "mark": "combine::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "lexical",
+      "git": "https://github.com/Alexhuszagh/rust-lexical",
+      "mark": "lexical::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "dtoa",
+      "git": "https://github.com/dtolnay/dtoa",
+      "mark": "dtoa::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "ryu2",
+      "git": "https://github.com/dtolnay/ryu",
+      "mark": "ryu::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "half",
+      "git": "https://github.com/starkat99/half-rs",
+      "mark": "half::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "num-format",
+      "git": "https://github.com/bcmyers/num-format",
+      "mark": "num_format::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "humansize",
+      "git": "https://github.com/LeopoldArkham/humansize",
+      "mark": "humansize::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "byte-unit",
+      "git": "https://github.com/magiclen/byte-unit",
+      "mark": "byte_unit::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "pretty-bytes",
+      "git": "https://github.com/banyan/rust-pretty-bytes",
+      "mark": "pretty_bytes::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "number_prefix",
+      "git": "https://github.com/ogham/rust-number-prefix",
+      "mark": "number_prefix::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "textdistance",
+      "git": "https://github.com/life4/textdistance.rs",
+      "mark": "textdistance::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "eddie",
+      "git": "https://github.com/thaumant/eddie",
+      "mark": "eddie::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ngrammatic",
+      "git": "https://github.com/compenguy/ngrammatic",
+      "mark": "ngrammatic::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "inflector",
+      "git": "https://github.com/whatisinternet/Inflector",
+      "mark": "inflector::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "convert_case",
+      "git": "https://github.com/rutrum/convert-case",
+      "mark": "convert_case::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "titlecase",
+      "git": "https://github.com/wezm/titlecase",
+      "mark": "titlecase::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "unicode-xid",
+      "git": "https://github.com/unicode-rs/unicode-xid",
+      "mark": "unicode_xid::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "unicode-categories",
+      "git": "https://github.com/swizard0/unicode_categories",
+      "mark": "unicode_categories::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "scan_fmt",
+      "git": "https://github.com/wlentz/scan_fmt",
+      "mark": "scan_fmt::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "shellwords",
+      "git": "https://github.com/tmiasko/shell-words",
+      "mark": "shell_words::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "gif",
+      "git": "https://github.com/image-rs/image-gif",
+      "mark": "gif::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "png",
+      "git": "https://github.com/image-rs/image-png",
+      "mark": "png::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "weezl",
+      "git": "https://github.com/image-rs/lzw",
+      "mark": "weezl::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "jpeg-decoder",
+      "git": "https://github.com/image-rs/jpeg-decoder",
+      "mark": "jpeg_decoder::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "quick-xml",
+      "git": "https://github.com/tafia/quick-xml",
+      "mark": "quick_xml::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "roxmltree",
+      "git": "https://github.com/RazrFalcon/roxmltree",
+      "mark": "roxmltree::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "cssparser",
+      "git": "https://github.com/servo/rust-cssparser",
+      "mark": "cssparser::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "palette",
+      "git": "https://github.com/Ogeon/palette",
+      "mark": "palette::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "tabwriter",
+      "git": "https://github.com/BurntSushi/tabwriter",
+      "mark": "tabwriter::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "bytemuck",
+      "git": "https://github.com/Lokathor/bytemuck",
+      "mark": "bytemuck::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "zerocopy",
+      "git": "https://github.com/google/zerocopy",
+      "mark": "zerocopy::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "scroll",
+      "git": "https://github.com/m4b/scroll",
+      "mark": "scroll::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "chumsky",
+      "git": "https://github.com/zesterer/chumsky",
+      "mark": "chumsky::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "gimli",
+      "git": "https://github.com/gimli-rs/gimli",
+      "mark": "gimli::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "object",
+      "git": "https://github.com/gimli-rs/object",
+      "mark": "object::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "goblin",
+      "git": "https://github.com/m4b/goblin",
+      "mark": "goblin::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "id-arena",
+      "git": "https://github.com/fitzgen/id-arena",
+      "mark": "id_arena::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "thunderdome",
+      "git": "https://github.com/LPGhatguy/thunderdome",
+      "mark": "thunderdome::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "bit-set",
+      "git": "https://github.com/contain-rs/bit-set",
+      "mark": "bit_set::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ego-tree",
+      "git": "https://github.com/rust-scraper/ego-tree",
+      "mark": "ego_tree::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "castaway",
+      "git": "https://github.com/sagebind/castaway",
+      "mark": "castaway::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "arrayref",
+      "git": "https://github.com/droundy/arrayref",
+      "mark": "arrayref::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "tinyvec2",
+      "git": "https://github.com/Lokathor/tinyvec",
+      "mark": "tinyvec::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "vec1",
+      "git": "https://github.com/rustonaut/vec1",
+      "mark": "vec1::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "smallvec2",
+      "git": "https://github.com/servo/rust-smallvec",
+      "mark": "smallvec::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "quick-protobuf",
+      "git": "https://github.com/tafia/quick-protobuf",
+      "mark": "quick_protobuf::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "prost",
+      "git": "https://github.com/tokio-rs/prost",
+      "mark": "prost::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "rkyv",
+      "git": "https://github.com/rkyv/rkyv",
+      "mark": "rkyv::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "speedy",
+      "git": "https://github.com/koute/speedy",
+      "mark": "speedy::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "flexbuffers",
+      "git": "https://github.com/google/flatbuffers",
+      "mark": "flexbuffers::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "simd-json",
+      "git": "https://github.com/simd-lite/simd-json",
+      "mark": "simd_json::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "sonic-rs",
+      "git": "https://github.com/cloudwego/sonic-rs",
+      "mark": "sonic_rs::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "serde-xml-rs",
+      "git": "https://github.com/RReverser/serde-xml-rs",
+      "mark": "serde_xml_rs::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "yaml-rust2",
+      "git": "https://github.com/Ethiraric/yaml-rust2",
+      "mark": "yaml_rust2::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "toml_edit",
+      "git": "https://github.com/toml-rs/toml",
+      "mark": "toml_edit::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "rust-ini",
+      "git": "https://github.com/zonyitoo/rust-ini",
+      "mark": "ini::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "csv-core",
+      "git": "https://github.com/BurntSushi/rust-csv",
+      "mark": "csv_core::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "regex-syntax",
+      "git": "https://github.com/rust-lang/regex",
+      "mark": "regex_syntax::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "aho-corasick2",
+      "git": "https://github.com/BurntSushi/aho-corasick",
+      "mark": "aho_corasick::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "jetscii",
+      "git": "https://github.com/shepmaster/jetscii",
+      "mark": "jetscii::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "memmap2",
+      "git": "https://github.com/RazrFalcon/memmap2-rs",
+      "mark": "memmap2::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "tempfile",
+      "git": "https://github.com/Stebalien/tempfile",
+      "mark": "tempfile::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "dirs",
+      "git": "https://github.com/dirs-dev/dirs-rs",
+      "mark": "dirs::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "same-file",
+      "git": "https://github.com/BurntSushi/same-file",
+      "mark": "same_file::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "filetime",
+      "git": "https://github.com/alexcrichton/filetime",
+      "mark": "filetime::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "globwalk",
+      "git": "https://github.com/Gilnaa/globwalk",
+      "mark": "globwalk::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ignore",
+      "git": "https://github.com/BurntSushi/ripgrep",
+      "mark": "ignore::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "which",
+      "git": "https://github.com/harryfei/which-rs",
+      "mark": "which::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "shell-escape",
+      "git": "https://github.com/sfackler/shell-escape",
+      "mark": "shell_escape::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "os_str_bytes",
+      "git": "https://github.com/dylni/os_str_bytes",
+      "mark": "os_str_bytes::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "camino",
+      "git": "https://github.com/camino-rs/camino",
+      "mark": "camino::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "relative-path",
+      "git": "https://github.com/udoprog/relative-path",
+      "mark": "relative_path::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "typed-path",
+      "git": "https://github.com/chipsenkbeil/typed-path",
+      "mark": "typed_path::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "path-slash",
+      "git": "https://github.com/rhysd/path-slash",
+      "mark": "path_slash::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "pathdiff",
+      "git": "https://github.com/Manishearth/pathdiff",
+      "mark": "pathdiff::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "semver-parser",
+      "git": "https://github.com/steveklabnik/semver-parser",
+      "mark": "semver_parser::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "versions",
+      "git": "https://github.com/fosskers/rs-versions",
+      "mark": "versions::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "lenient_semver",
+      "git": "https://github.com/knutwalker/lenient-semver",
+      "mark": "lenient_semver::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "nom_locate",
+      "git": "https://github.com/fflorent/nom_locate",
+      "mark": "nom_locate::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "peg",
+      "git": "https://github.com/kevinmehall/rust-peg",
+      "mark": "peg::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "lalrpop",
+      "git": "https://github.com/lalrpop/lalrpop",
+      "mark": "lalrpop::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "regex-lite",
+      "git": "https://github.com/rust-lang/regex",
+      "mark": "regex_lite::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "aGB-fancy-regex",
+      "git": "https://github.com/fancy-regex/fancy-regex",
+      "mark": "fancy_regex::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "onig",
+      "git": "https://github.com/rust-onig/rust-onig",
+      "mark": "onig::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "sha2",
+      "git": "https://github.com/RustCrypto/hashes",
+      "mark": "sha2::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "handlebars",
+      "git": "https://github.com/sunng87/handlebars-rust",
+      "mark": "handlebars::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "tera",
+      "git": "https://github.com/Keats/tera",
+      "mark": "tera::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "minijinja",
+      "git": "https://github.com/mitsuhiko/minijinja",
+      "mark": "minijinja::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "comrak",
+      "git": "https://github.com/kivikakk/comrak",
+      "mark": "comrak::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "markdown",
+      "git": "https://github.com/wooorm/markdown-rs",
+      "mark": "markdown::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "mime_guess",
+      "git": "https://github.com/abonander/mime_guess",
+      "mark": "mime_guess::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "publicsuffix",
+      "git": "https://github.com/rushmorem/publicsuffix",
+      "mark": "publicsuffix::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "iso8601",
+      "git": "https://github.com/badboy/iso8601",
+      "mark": "iso8601::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "chrono-tz",
+      "git": "https://github.com/chronotope/chrono-tz",
+      "mark": "chrono_tz::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "ulid",
+      "git": "https://github.com/dylanhart/ulid-rs",
+      "mark": "ulid::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "nanoid",
+      "git": "https://github.com/nikolay-govorov/nanoid",
+      "mark": "nanoid::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "isolang",
+      "git": "https://github.com/humenda/isolang-rs",
+      "mark": "isolang::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "iban_validate",
+      "git": "https://github.com/ThomasdenH/iban_validate",
+      "mark": "iban::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "thousands",
+      "git": "https://github.com/tov/thousands",
+      "mark": "thousands::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "slug",
+      "git": "https://github.com/Stebalien/slug-rs",
+      "mark": "slug::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "pad",
+      "git": "https://github.com/ogham/rust-pad",
+      "mark": "pad::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "phonenumber",
+      "git": "https://github.com/whisperfish/rust-phonenumber",
+      "mark": "phonenumber::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "language-tags",
+      "git": "https://github.com/pyfisch/rust-language-tags",
+      "mark": "language_tags::",
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "countries",
+      "git": "https://github.com/RogerSik/celes",
+      "mark": "celes::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "rust_iso3166",
+      "git": "https://github.com/rust-iso/rust_iso3166",
+      "mark": "rust_iso3166::",
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "sqlparser",
+      "git": "https://github.com/apache/datafusion-sqlparser-rs",
+      "mark": "sqlparser::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "rhai",
+      "git": "https://github.com/rhaiscript/rhai",
+      "mark": "rhai::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "rune",
+      "git": "https://github.com/rune-rs/rune",
+      "mark": "rune::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "jaq",
+      "git": "https://github.com/01mf02/jaq",
+      "mark": "jaq::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "graphql-parser",
+      "git": "https://github.com/graphql-rust/graphql-parser",
+      "mark": "graphql_parser::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "html5ever",
+      "git": "https://github.com/servo/html5ever",
+      "mark": "html5ever::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "lightningcss",
+      "git": "https://github.com/parcel-bundler/lightningcss",
+      "mark": "lightningcss::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "hcl-rs",
+      "git": "https://github.com/martinohmann/hcl-rs",
+      "mark": "hcl::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "kdl",
+      "git": "https://github.com/kdl-org/kdl-rs",
+      "mark": "kdl::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "json5",
+      "git": "https://github.com/callum-oakley/json5-rs",
+      "mark": "json5::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "protobuf",
+      "git": "https://github.com/stepancheg/rust-protobuf",
+      "mark": "protobuf::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "liquid",
+      "git": "https://github.com/cobalt-org/liquid-rust",
+      "mark": "liquid::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "askama",
+      "git": "https://github.com/djc/askama",
+      "mark": "askama::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "upon",
+      "git": "https://github.com/rossmacarthur/upon",
+      "mark": "upon::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "regress",
+      "git": "https://github.com/ridiculousfish/regress",
+      "mark": "regress::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "fasteval",
+      "git": "https://github.com/likebike/fasteval",
+      "mark": "fasteval::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "hickory-proto",
+      "git": "https://github.com/hickory-dns/hickory-dns",
+      "mark": "hickory_proto::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "etherparse",
+      "git": "https://github.com/JulianSchmid/etherparse",
+      "mark": "etherparse::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "x509-parser",
+      "git": "https://github.com/rusticata/x509-parser",
+      "mark": "x509_parser::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "der-parser",
+      "git": "https://github.com/rusticata/der-parser",
+      "mark": "der_parser::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "asn1-rs",
+      "git": "https://github.com/rusticata/asn1-rs",
+      "mark": "asn1_rs::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "tls-parser",
+      "git": "https://github.com/rusticata/tls-parser",
+      "mark": "tls_parser::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "cookie",
+      "git": "https://github.com/SergioBenitez/cookie-rs",
+      "mark": "cookie::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "wasm-tools",
+      "git": "https://github.com/bytecodealliance/wasm-tools",
+      "mark": "wasmparser::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "calamine",
+      "git": "https://github.com/tafia/calamine",
+      "mark": "calamine::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "xmlparser",
+      "git": "https://github.com/RazrFalcon/xmlparser",
+      "mark": "xmlparser::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "serde_cbor",
+      "git": "https://github.com/pyfisch/cbor",
+      "mark": "serde_cbor::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "sqlformat",
+      "git": "https://github.com/shssoichiro/sqlformat-rs",
+      "mark": "sqlformat::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "ketos",
+      "git": "https://github.com/murarth/ketos",
+      "mark": "ketos::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "gluon",
+      "git": "https://github.com/gluon-lang/gluon",
+      "mark": "gluon::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "boa",
+      "git": "https://github.com/boa-dev/boa",
+      "mark": "boa_engine::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "yaml-rust",
+      "git": "https://github.com/chyh1990/yaml-rust",
+      "mark": "yaml_rust::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "hjson",
+      "git": "https://github.com/hjson/hjson-rust",
+      "mark": "serde_hjson::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "jsonnet",
+      "git": "https://github.com/CertainLach/jrsonnet",
+      "mark": "jrsonnet_evaluator::",
+      "rich": true,
+      "done": true,
+      "status": "ok"
+    },
+    {
+      "name": "dotenvy",
+      "git": "https://github.com/allan2/dotenvy",
+      "mark": "dotenvy::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "humantime-serde",
+      "git": "https://github.com/jean-airoldie/humantime-serde",
+      "mark": "humantime_serde::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "cron",
+      "git": "https://github.com/zslayton/cron",
+      "mark": "cron::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "iref",
+      "git": "https://github.com/timothee-haudebourg/iref",
+      "mark": "iref::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "oxhttp",
+      "git": "https://github.com/oxigraph/oxhttp",
+      "mark": "oxhttp::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "biscuit",
+      "git": "https://github.com/lawliet89/biscuit",
+      "mark": "biscuit::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "pem",
+      "git": "https://github.com/jcreekmore/pem-rs",
+      "mark": "pem::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "multipart",
+      "git": "https://github.com/abonander/multipart",
+      "mark": "multipart::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    },
+    {
+      "name": "mailparse",
+      "git": "https://github.com/staktrace/mailparse",
+      "mark": "mailparse::",
+      "rich": true,
+      "done": true,
+      "status": "failed"
+    }
+  ]
+}
