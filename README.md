@@ -1,6 +1,7 @@
 # Cairn
 
-| | |
+I used to learn a codebase in the debugger, stepping through, watching state, until I understood how it worked. These days it's easier to just ask the model. It gets you unblocked, but the answers aren't grounded, and you never build deep understanding of the codebase. Cairn grounds the model's output on actual runtime execution traces, and gives you back the context from the call graph.
+
 |---|---|
 | **cairn** &nbsp; /kɛərn/ &nbsp; *(“kairn,” rhymes with “bairn”)* &nbsp; · &nbsp; *noun* | A mound of stones stacked by hand as a trail marker — raised where the path isn't obvious, so the next traveler can follow the route someone already found. |
 | **Cairn** &nbsp; · &nbsp; *the tool* | The same idea for code: it marks the salient path through a real execution — the few events that matter out of millions — so you can retrace what unfamiliar code actually did, from what ran. |
